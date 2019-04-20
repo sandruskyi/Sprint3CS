@@ -1,68 +1,62 @@
-# encoding: UTF-8
+﻿# encoding: UTF-8
 Given("I am on Renfe in English") do
   visit 'http://www.renfe.com/EN/viajeros/index.html'
 end
 
-When("you click on {string}") do |string|
-  click_button('Spanish')
+When("you click on Bienvenido") do
+  click_link('Bienvenido')
 end
 
 Then("page language changes to Spanish") do
-  puts page.inspect
-  page.should have_content 'ORIGEN'
+  expect(page).to have_content("ORIGEN")
 end
 
-Given("the main page") do
+Given("page in Spanish") do
   visit 'http://www.renfe.com/index.html'
 end
 
-When("you click {string}") do |string|
-  click_button('Atencion al cliente')
+When("you click Atencion al cliente") do 
+  click_link('Atención al cliente')
 end
 
 Then("the page goes to customer service") do
-  puts page.inspect
-  page.should have_content 'Departamento'
+  expect(page).to have_content('AtencionViajero.nsf')
 end
 
 Given("the main page") do
   visit 'http://www.renfe.com/index.html'
 end
 
-When("you click {string}") do |string|
-  click_button('opc4')
+When("you click Cambios") do
+  click_link('Cambios')
 end
 
 Then("the page goes to changes") do
-   puts page.inspect
-   page.should have_content 'Buscar'
+   expect(page).to have_content('MD')
 end
 
 Given("the login page") do
   visit 'https://venta.renfe.com/vol/login.do?Idioma=es&Pais=ES&inirenfe=SI'
 end
 
-When("click on {string}") do |string|
-  click_button('homerenfeventa')
+When("click on Inicio renfe") do 
+  click_link('Inicio Renfe')
 end
 
 Then("access to main page") do
-  puts page.inspect
-  page.should have_content 'ORIGEN'
+  expect(page).to have_content("ORIGEN")
 end
 
-Given("the Cercanias Madrid page") do
-  visit 'http://www.renfe.com/viajeros/cercanias/madrid/'
+Given("the Renfe page") do
+  visit 'http://www.renfe.com/index.html'
 end
 
-When("choose origin and destiny, and click {string}") do |string|
-  fill_in 'o', with: 'Atocha'
-  fill_in 'd', with: 'Mostoles el Soto'
-  
-  click_button('Buscar')
+When("find Madrid-Dos Hermanas trains") do
+  fill_in 'IdOrigen', with: 'MADRID (TODAS)'
+  fill_in 'IdDestino', with: 'DOS HERMANAS'
+  click_button 'Comprar'
 end
 
-Then("trains timeline appears") do
-  puts page.inspect
-  page.should have_content 'Solicitados'
+Then("return trains") do
+  expect(page).to have_content("A")
 end
