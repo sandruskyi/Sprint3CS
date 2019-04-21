@@ -1,4 +1,5 @@
 ﻿# encoding: UTF-8
+
 Given("I am on Renfe in English") do
   visit 'http://www.renfe.com/EN/viajeros/index.html'
 end
@@ -19,8 +20,9 @@ When("you click Atencion al cliente") do
   click_link('Atención al cliente')
 end
 
+
 Then("the page goes to customer service") do
-  expect(page).to have_content('AtencionViajero.nsf')
+  expect(page).to have_content('Ayuda a la Venta')
 end
 
 Given("the main page") do
