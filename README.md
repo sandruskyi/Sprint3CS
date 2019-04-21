@@ -1,14 +1,14 @@
-#RUN: 
+# RUN: 
 En la CMD de Ruby ir a la carpeta Testing-Selenium. 
 Dentro de ella poner o bien "cucumber features/renfe.features" para test con interfaz ó "cucumber feature/renfeHeadless.feature" para test sin interfaz. 
 Si coge la carpeta, debe extraer en su ordenador el comprimido phantom. Además debe añadir a su PATH la carpeta geckodriver y phantomjs.
-#Realizaremos BDD que es el desarrollo guiado por el comportamiento. 
-#TESTING AUTOMATIZADO INTERFAZ WEB - Feature con 5 escenarios - Gherkin .Feature -> Cucumber -> rb -> framework capybara -> driver selenium -> dsl capybara -> PARA LA RENFE
+# Realizaremos BDD que es el desarrollo guiado por el comportamiento. 
+# TESTING AUTOMATIZADO INTERFAZ WEB - Feature con 5 escenarios - Gherkin .Feature -> Cucumber -> rb -> framework capybara -> driver selenium -> dsl capybara -> PARA LA RENFE
 
 Tutorial de ayuda: https://www.solvetic.com/tutoriales/article/2666-testing-web-automatico-con-ruby-capybara-y-selenium/
 
 Para realizar esto necesitamos la CMD de Ruby. 
-##Paso de instalación
+## Paso de instalación
 (Este paso también se encuentra en Gemfile)
 En la CMD:
 Primero instalaremos cucumber, capybara, selenium y rspec: 
@@ -17,11 +17,11 @@ Primero instalaremos cucumber, capybara, selenium y rspec:
 3.	gem install selenium-webdriver
 4.	gem install rspec
 
-##GHERKIN: 
+## GHERKIN: 
 Dentro de la carpeta features encontraremos(crearemos todo) el archivo renfe.feature. Con ello definimos la prueba que queremos pasar en un lenguaje que es entendido por todo el mundo (La prueba en sí es la parte del escenario, el resto es una descripción).
 	Tenemos 5 escenarios en renfe.feature
 
-##CUCUMBER: 
+## CUCUMBER: 
 Dentro de la carpeta features, tenemos dos carpetas step_definitions y support. (cucumber –init también hace esto)
 1.	Step_definitions: Aquí encontraremos el vínculo entre cucumber y Gherkin 
 2.	Support: para declarar el entorno (enviroment) y gestionarlo. 
@@ -34,7 +34,7 @@ CAPYBARA SINTAXIS PARA LOS STEPS: https://gist.github.com/tomas-stefano/6652111
 
 
 
-#TESTING AUTOMATIZADO -SIN-INTERFAZ WEB feature con 5 escenarios (pueden ser los anteriores) -> Gherkin .Feature -> Cucumber -> rb -> framework capybara + phanton -> driver poltergeis -> dsl capybara -> RENFE
+# TESTING AUTOMATIZADO -SIN-INTERFAZ WEB feature con 5 escenarios (pueden ser los anteriores) -> Gherkin .Feature -> Cucumber -> rb -> framework capybara + phanton -> driver poltergeis -> dsl capybara -> RENFE
 
 Todo lo demás más: 
 1.	gem install poltergeist
@@ -46,7 +46,7 @@ http://testerstories.com/2014/08/learning-capybara-part-2/
 
 
  
-#ANEXO1
+# ANEXO1
 *** WARNING: You must use ANSICON 1.31 or higher (https://github.com/adoxa/ansicon/) to get coloured output on Windows
 Feature: Test Interface
     As a client, I the interface to work properly.
@@ -137,7 +137,7 @@ Then("trains timeline appears") do
   pending # Write code here that turns the phrase above into concrete actions
 end
 
-#ANEXO2
+# ANEXO2
 
 Given("I am on Renfe in English") do
   visit 'http://www.renfe.com/EN/viajeros/index.html'
@@ -207,7 +207,7 @@ Then("trains timeline appears") do
   page.should have_content 'Solicitados'
 end
 
-#ANEXO3
+# ANEXO3
 Requite ‘capybara’
 require 'capybara/cucumber'
 require "selenium-webdriver"
