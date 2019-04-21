@@ -1,4 +1,4 @@
-# RUN: 
+# RUN:  
 En la CMD de Ruby ir a la carpeta Testing-Selenium. 
 Dentro de ella poner o bien "cucumber features/renfe.features" para test con interfaz ó "cucumber feature/renfeHeadless.feature" para test sin interfaz. 
 Si coge la carpeta, debe extraer en su ordenador el comprimido phantom. Además debe añadir a su PATH la carpeta geckodriver y phantomjs.
