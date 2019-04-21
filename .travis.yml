@@ -1,0 +1,46 @@
+language: ruby
+sudo: required
+dist: trusty
+
+rvm:
+  - 2.6
+  - jruby-9.2.7.0
+  - 2.5.1
+  - 2.4.4
+  - 2.3.7
+  - 2.2.10
+  - 2.1.10
+  - jruby-9.1.16.0
+gemfile:
+  - Gemfile
+env:
+  global:
+    - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
+    - POLTERGEIST_TEST_HOST=poltergeist.test.com
+
+addons:
+  firefox: stable
+  hosts:
+    - poltergeist.test.com
+  apt:
+    packages:
+      - awesome
+
+
+cache:
+  bundler: true
+  directories:
+    - ~/.webdrivers
+    - $PWD/travis-phantomjs2
+    
+
+addons:
+  sonarcloud:
+    organization: calidad-de-software-grupo-5
+    token:
+      secure: 6326679947394c5a7eb04f916feeb7ee09c3d612
+
+script: 
+  - echo "Travis branch is $TRAVIS_BRANCH"
+  - echo "Travis branch is in pull request $TRAVIS_PULL+REQUEST"
+  - cucumber
